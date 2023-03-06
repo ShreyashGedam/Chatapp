@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 
 export const Login = ({ setUserId }) => {
   const idRef = useRef();
-  const [id, setID] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +13,7 @@ export const Login = ({ setUserId }) => {
   };
 
   const createId = () => {
-    setID(uuidv4());
+    setUserId(uuidv4());
   };
 
   return (
@@ -27,7 +26,6 @@ export const Login = ({ setUserId }) => {
         width: "50%",
       }}
     >
-      {id}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Enter Login Id</Form.Label>

@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
 import { Login } from "./components/Login";
+import { UseLocalStorage } from "./hooks/UseLocalStorage";
 
 function App() {
-  const [id, setId] = useState("");
+  const [id, setId] = UseLocalStorage('id');
 
   return (
     <div
