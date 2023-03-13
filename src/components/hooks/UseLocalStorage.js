@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 const PREFIX = "chat-app";
 
 export const UseLocalStorage = (key, initialValue) => {
-  const preFixedKey = PREFIX + key; 
- 
+  const preFixedKey = PREFIX + key;
+
   const [value, setValue] = useState(() => {
     const jsonValue = localStorage.getItem(preFixedKey);
     // if (jsonValue !== null) return jsonValue;

@@ -1,12 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Login } from "./components/Login";
-import { UseLocalStorage } from "./hooks/UseLocalStorage";
+import { Dashboard } from "./components/Pages/Dashboard";
+import { UseLocalStorage } from "./components/hooks/UseLocalStorage";
+import { ContactsProvider } from "./components/contexts/ContactsProvider";
 
 function App() {
-  const [id, setId] = UseLocalStorage('id');
+  const [id, setId] = UseLocalStorage("id");
+
+  const dashboard = (
+    <ContactsProvider>
+      <Dashboard id={id}></Dashboard>
+    </ContactsProvider>
+  );
 
   return (
-    <div
+    <div 
       style={{
         width: "70%",
         margin: "auto",
@@ -14,8 +22,7 @@ function App() {
         height: "100vh",
       }}
     >
-      {id}
-      <Login setUserId={setId}></Login>
+      {id ? <Dashboard id={id} /> : <Login setUserId={setId}></Login>}
     </div>
   );
 }
